@@ -12,83 +12,79 @@
 <meta http-equiv="description" content="This is my page">
 
 <script src="../../js/jquery-3.1.1.js"></script>
+<link href="../../css/bootstrap.css" rel="stylesheet">
+<script src="../../js/bootstrap.js"></script>
 
-<!-- include -->
-<script type="text/javascript" src="../../js/webuploader/webuploader.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="../../js/webuploader/webuploader.css">
-<link rel="stylesheet" type="text/css"
-	href="../../js/webuploader/image-upload-style.css">
 <!-- include -->
 
 <style type="text/css">
-.userimg {
-	width: 150px;
-	height: 50px;
+.userinfo {
+	width: 60%;
+	height: 80%;
+	margin-top:5%;
+	margin-left: 15%;
+}
+
+.user_title {
+	width: 20%;
 }
 </style>
 </head>
 <body>
 
+	<div class="userinfo">
 
-	<div class="userimg">
-		<div id="uploader">
-			<div class="queueList">
-				<div id="dndArea" class="placeholder">
-					<div id="filePicker"></div>
-					
-				</div>
-			</div>
-			<div class="statusBar" style="display: none;">
-				<div class="progress">
-					<span class="text">0%</span> <span class="percentage"></span>
-				</div>
-				<div class="info"></div>
-				<div class="btns">
-					
-					<div class="uploadBtn">开始上传</div>
-				</div>
-			</div>
-		</div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th colspan="4" align="center">完善用户信息</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="user_title">手机号码</td>
+					<td>Bangalore</td>
+				</tr>
+				<tr>
+					<td>邮箱</td>
+					<td>Mumbai</td>
 
+				</tr>
+				<tr>
+					<td>昵称</td>
+					<td>Pune</td>
+				</tr>
+
+				<tr>
+					<td>公司名称</td>
+					<td>Pune</td>
+
+				</tr>
+				<tr>
+					<td>当前角色</td>
+					<td>Pune</td>
+
+				</tr>
+				<tr>
+					<td>真实姓名</td>
+					<td>Pune</td>
+
+				</tr>
+				<tr>
+					<td>身份证号码</td>
+					<td>Pune</td>
+				</tr>
+				<tr>
+					<td>我的收藏</td>
+					<td>Pune</td>
+				</tr>
+				<tr>
+					<td>信用分</td>
+					<td>Pune</td>
+				</tr>
+
+			</tbody>
+		</table>
 	</div>
-
-	<script type="text/javascript" src="../../js/webuploader/upload.js"></script>
-	<script>
-		// 实例化
-		var uploader = WebUploader.create({
-			pick : {
-				id : '#filePicker',
-				label : '点击选择图片',
-				multipe : false
-			},
-			formData : {
-				uid : 123
-			},
-			paste : '#uploader',//黏贴区域
-			swf : '../../js/webuploader/Uploader.swf',
-			chunked : false,
-
-			chunkSize : 512 * 1024,
-			server : '/sys/uploadHeadPic/',//上传的URL
-			// runtimeOrder: 'flash',
-			accept : {
-				title : 'Images',
-				extensions : 'gif,jpg,jpeg,bmp,png'
-			},
-			// 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
-			disableGlobalDnd : true,
-			fileNumLimit : 300,
-			fileSizeLimit : 200 * 1024 * 1024, // 200 M
-			fileSingleSizeLimit : 50 * 1024 * 1024
-		// 50 M
-		});
-		/** 附件函数
-		uploader.on( 'uploadSuccess', function( type ) {
-		   alert(11000);
-		});
-		 */
-	</script>
-
 </body>
 </html>
