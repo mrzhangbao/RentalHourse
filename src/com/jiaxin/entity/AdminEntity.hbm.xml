@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.jiaxin.entity.AdminEntity" table="tb_admin" catalog="db_rentalhourse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" length="50" />
+            <generator class="increment" />
+        </id>
+        
+         <property name="account" type="java.lang.String">
+            <column name="account" length="50"  />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="50"  />
+        </property>
+        
+        <property name="username" type="java.lang.String">
+            <column name="username" length="50"  />
+        </property>
+        
+         <property name="rank" type="java.lang.String">
+            <column name="rank" length="50"  />
+        </property>
+        <property name="addtime" type="java.util.Date">
+            <column name="addtime" length="50"  />
+        </property>
+    </class>
+</hibernate-mapping>

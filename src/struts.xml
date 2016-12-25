@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE struts PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+            "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 将Struts 2 默认的objectFactory设置为spring -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+
+	<package name="default" extends="struts-default">
+		<action name="getInfo" class="TestAction" method="getInfo">
+			<result name="success">index.jsp</result>
+		</action>
+		
+		<action name="getInfoByServlet" class="TestAction" method="getInfoByServlet">
+			<result name="success">index.jsp</result>
+		</action>
+		
+		
+		<action name="*Action" class="UserManagerAction" method="{1}">
+			<result name="success">/view/register.jsp</result>
+			<result name="check">/view/index.jsp</result>
+		</action>
+		
+		<action name="*Admin" class="AdminAction" method="{1}">
+			<result name="success">/view/admin/adminIndex.jsp</result>
+			<result name="error">/view/admin/adminIndex.jsp</result>
+		</action>
+
+		<action name="*Reg" class="UserRegisterAction" method="{1}">
+			<result name="sendSuccess">/view/index.jsp</result>
+			<result name="error">/view/index.jsp</result>
+		</action>
+		
+		<action name="login" class="UserLoginAction" method="login">
+			<result name="error">/view/index.jsp</result>
+		</action>
+		
+	</package>
+</struts>

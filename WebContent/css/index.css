@@ -1,0 +1,215 @@
+.topBar {
+	position: fixed;
+	z-index: 1;
+	top: 60px;
+	left: 295px;
+	height: 40px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 2;
+	background-color: rgb(255, 255, 255);
+	filter: alpha(opacity = 20); /*ie透明度20%*/
+	-moz-opacity: 0.8; /*Moz + FF 透明度20%*/
+	opacity: 0.8;
+}
+
+/* 增加top菜单导航颜色 */
+.atop {
+	color: #428bca;
+	text-decoration: none;
+	width: auto;
+	height: auto;
+	overflow: hidden;
+}
+
+.atop:hover, atop:focus {
+	color: #ffffff;
+	text-decoration: underline;
+	font-weight: bolder;
+}
+
+.atop:focus {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+.navTop {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	font-size: 18px;
+	margin-left: 250px;
+}
+
+.side-menu-icon {
+	width: 28px;
+	height: 15px;
+	border-radius: 15px;
+}
+
+}
+.logo {
+	float: left;
+}
+
+.navTop>li {
+	position: relative;
+	display: block;
+}
+
+.navTop>li>a {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+}
+
+.navTop>li>a>img {
+	position: relative;
+	display: block;
+}
+
+.navTop>li>a:hover, .nav>li>a:focus {
+	text-decoration: none;
+	background-color: #99cc66; /*修改鼠标悬浮背景色  */
+}
+
+.navTop>li.disabled>a {
+	color: #777;
+}
+
+.navTop>li.disabled>a:hover, .nav>li.disabled>a:focus {
+	color: #777;
+	text-decoration: none;
+	cursor: not-allowed;
+	background-color: transparent;
+}
+
+.navTop .open>a, .navTop .open>a:hover, .navTop .open>a:focus {
+	background-color: #eee;
+	border-color: #428bca;
+}
+
+.navTop .nav-divider {
+	height: 1px;
+	margin: 9px 0;
+	overflow: hidden;
+	background-color: #e5e5e5;
+}
+
+.navTop>li>a>img {
+	max-width: none;
+}
+
+.nav-logo {
+	width: 65%;
+	height: 10%;
+	background-color: #ffffff;
+}
+
+.nav-logo-img {
+	float: left;
+	margin: 4% 0 0 3%;
+	background-color: #ffffff;
+}
+
+.nav-logo-img img {
+	width: 75%;
+	height: 80%;
+}
+
+.selectcity {
+	width: 40px;
+	align: center;
+	position: relative;
+	left: 80%;
+	bottom: 10px;
+}
+/* 修改定位城市的位置 */
+.city-position {
+	width: 35px;
+	position: relative;
+	bottom: 5px;
+}
+
+.city-button {
+	background-color: #5384d5;
+	color: #fff;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border-radius: 6px;
+}
+
+.city-button:hover, .city-button:focus, .city-button.focus, .city-button:active,
+	.city-button.active {
+	color: #fff;
+	font-size: 16px;
+	background-color: #6495ED;
+}
+
+.content {
+	background-color: #f0f0f0;
+}
+
+.screen {
+	background-color: #fff;
+	width: 100%;
+	height: 200px;
+	margin-top: 0;
+	position: relative;
+	left: 1%;
+	margin-top: 1%;
+	border-radius: 5em;
+	float: left;
+}
+
+/* 信息显示样式*/
+.information {
+	background-color: #f0f0f0;
+	width: 100%;
+	margin-top: 0;
+	float: left;
+}
+
+.information-cen {
+	background-color: #fff;
+	width: 950px;
+	margin-top: 0;
+	position: relative;
+	left: 80px;
+	margin-top: 10px;
+	border-radius: 5em  5em 1em 1em;
+	float: left;
+}
+
+.pagination {
+	margin-left: 120px;
+	
+}
+
+.recommend {
+	background-color: #fff;
+	width: 190px;
+	height: 100%;
+	float: left;
+	margin-left: 115px;
+	margin-top: 10px;
+	border: 2px;
+	border-radius: 15px;
+}
