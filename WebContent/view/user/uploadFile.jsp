@@ -63,7 +63,7 @@
             swf: '/common/plugin/webuploader/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: '/sys/uploadHeadPic/',//上传的URL
+            server: 'saveAvatar',//上传的URL
             // runtimeOrder: 'flash',
              accept: {
                  title: 'Images',

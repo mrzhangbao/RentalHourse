@@ -1,5 +1,6 @@
 package com.jiaxin.entity;
 
+
 /**
  * 房源租聘的详细信息
  * 
@@ -7,169 +8,84 @@ package com.jiaxin.entity;
  *
  */
 public class HourseDetail {
-	private String id;// 房源ID
-	private String userId;// 发布用户ID
-	private String imgPath;//图片预览地址
-	private String title;// 房源标题
-	private String rentalType;// 房源类型
-	private String layout;// 房源布局
-	private String size;// 房源大小
-	private String direction;// 房源坐标
-	private String floor;// 房源楼层
-	private String decoration;// 房源装修度
-	private String address;// 房源地址
-	private String agent;// 房源中介
-	private String role;// 房源中介的角色
-	private String price;//房源价格
-	private String unit;//价格单位
-	private String time;//发布时间
-
-	public String getId() {
-		return id;
+	private Integer hourse_detail_id;// 房源ID
+	private String user_id;// 发布用户ID
+	private String hourse_title;// 房源标题
+	private String hourse_size;// 
+	private String hourse_floor;// 房源布局
+	private String hourse_price;
+	private String description;
+	private String img_data;
+	private String send_time;
+	
+	
+	public HourseDetail() {
+		super();
 	}
-
-	public void setId(String id) {
-		this.id = id;
+	public Integer getHourse_detail_id() {
+		return hourse_detail_id;
 	}
-
-	public String getUserId() {
-		return userId;
+	public void setHourse_detail_id(Integer hourse_detail_id) {
+		this.hourse_detail_id = hourse_detail_id;
 	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getHourse_title() {
+		return hourse_title;
+	}
+	public void setHourse_title(String hourse_title) {
+		this.hourse_title = hourse_title;
+	}
+	public String getHourse_size() {
+		return hourse_size;
+	}
+	public void setHourse_size(String hourse_size) {
+		this.hourse_size = hourse_size;
+	}
+	public String getHourse_floor() {
+		return hourse_floor;
+	}
+	public void setHourse_floor(String hourse_floor) {
+		this.hourse_floor = hourse_floor;
+	}
+	
+	public String getHourse_price() {
+		return hourse_price;
+	}
+	public void setHourse_price(String hourse_price) {
+		this.hourse_price = hourse_price;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getImg_data() {
+		return img_data;
+	}
+	public void setImg_data(String img_data) {
+		this.img_data = img_data;
 	}
 	
 	
-
-	public String getImgPath() {
-		return imgPath;
+	public String getSend_time() {
+		return send_time;
 	}
-
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
+	public void setSend_time(String send_time) {
+		this.send_time = send_time;
 	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getRentalType() {
-		return rentalType;
-	}
-
-	public void setRentalType(String rentalType) {
-		this.rentalType = rentalType;
-	}
-
-	public String getLayout() {
-		return layout;
-	}
-
-	public void setLayout(String layout) {
-		this.layout = layout;
-	}
-
-	public String getSize() {
-		return size;
-	}
-
-	public void setSize(String size) {
-		this.size = size;
-	}
-
-	public String getDirection() {
-		return direction;
-	}
-
-	public void setDirection(String direction) {
-		this.direction = direction;
-	}
-
-	public String getFloor() {
-		return floor;
-	}
-
-	public void setFloor(String floor) {
-		this.floor = floor;
-	}
-
-	public String getDecoration() {
-		return decoration;
-	}
-
-	public void setDecoration(String decoration) {
-		this.decoration = decoration;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getAgent() {
-		return agent;
-	}
-
-	public void setAgent(String agent) {
-		this.agent = agent;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
-	
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-	
-	
-	
-
-	public String getUnit() {
-		return unit;
-	}
-
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
 	@Override
 	public String toString() {
-		return "HourseDetail [id=" + id + ", userId=" + userId + ", imgPath=" + imgPath + ", title=" + title
-				+ ", rentalType=" + rentalType + ", layout=" + layout + ", size=" + size + ", direction=" + direction
-				+ ", floor=" + floor + ", decoration=" + decoration + ", address=" + address + ", agent=" + agent
-				+ ", role=" + role + ", price=" + price + ", unit=" + unit + ", time=" + time + "]";
+		return "HourseDetail [hourse_detail_id=" + hourse_detail_id + ", user_id=" + user_id + ", hourse_title="
+				+ hourse_title + ", hourse_size=" + hourse_size + ", hourse_floor=" + hourse_floor 
+				+ ", hourse_price=" + hourse_price + ", description=" + description + ", img_data=" + img_data
+				+ ", send_time=" + send_time + "]";
 	}
-
-	
-
-	
 
 
 }

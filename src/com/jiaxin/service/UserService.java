@@ -16,6 +16,10 @@ public interface UserService {
 
 	User getUserByPhoneNum(String phoneNum);
 
-	List<User> findAllUser();;
+	List<User> findAllUser();
+	
+	boolean updateUser(User user);
+	
+	boolean updateUserAvatar(User user);
 
 }

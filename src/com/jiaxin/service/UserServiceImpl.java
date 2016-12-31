@@ -46,13 +46,25 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserByPhoneNum(String phoneNum) {
 		// TODO Auto-generated method stub
-		return this.getUserByPhoneNum(phoneNum);
+		return this.userDao.getUserByPhoneNum(phoneNum);
 	}
 
 	@Override
 	public List<User> findAllUser() {
 		// TODO Auto-generated method stub
 		return this.userDao.findAllUser();
+	}
+
+	@Override
+	public boolean updateUser(User user) {
+		// TODO Auto-generated method stub
+		return this.userDao.updateUser(user);
+	}
+
+	@Override
+	public boolean updateUserAvatar(User user) {
+		// TODO Auto-generated method stub
+		return this.userDao.updateUserAvatar(user);
 	}
 
 }

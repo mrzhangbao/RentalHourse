@@ -1,0 +1,37 @@
+body{
+	background-color:#dbdbdb;
+}
+
+.content{
+	
+	margin-left:20%;
+	
+}
+
+.avatar{
+	height:30%;
+	width:98%;
+	margin-top:5%;
+	border-radius:5%;
+	background-color:#ffffff;
+}
+.avatar img{
+	height:56%;
+	width:50%;
+	margin-left:25%;
+	margin-top:5%;
+	border-radius:5%;
+	padding-bottom:5%;
+	background-color:#ffffff;
+}
+
+
+
+
+.menu{
+	height:60%;
+	width:98%;
+	margin-top:5%;
+	border-radius:5%;
+	background-color:#ffffff;
+}

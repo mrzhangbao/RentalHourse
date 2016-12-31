@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.jiaxin.dao.UserDao;
+import com.jiaxin.entity.AdminEntity;
 import com.jiaxin.entity.User;
 import com.jiaxin.entity.UserTemp;
 
@@ -106,6 +107,32 @@ public class UserDaoImpl implements UserDao {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public boolean updateUser(User user) {
+		// TODO Auto-generated method stub
+		User u =  (User) this.getHibernateTemplate().get(User.class,user.getId());
+		u.setEmail(user.getEmail());
+		u.setNickName(user.getNickName());
+		u.setRealName(user.getRealName());
+		u.setCreditNum(user.getCreditNum());
+		u.setCompany(user.getCompany());
+		u.setRole(user.getRole());
+		u.setAvatar(user.getAvatar());
+		u.setCreditScore(user.getCreditScore());
+		this.getHibernateTemplate().update(u);
+		
+		return false;
+	}
+
+	@Override
+	public boolean updateUserAvatar(User user) {
+		// TODO Auto-generated method stub
+		User u =  (User) this.getHibernateTemplate().get(User.class,user.getId());
+		u.setAvatar(user.getAvatar());
+		this.getHibernateTemplate().update(u);
+		return false;
 	}
 
 }

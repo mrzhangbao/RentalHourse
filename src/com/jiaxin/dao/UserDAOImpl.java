@@ -60,4 +60,28 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDao {
 
 
 
+
+
+
+
+	@Override
+	public boolean updateUser(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
+
+
+
+	@Override
+	public boolean updateUserAvatar(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 }

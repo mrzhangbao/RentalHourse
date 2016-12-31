@@ -23,5 +23,9 @@ public interface UserDao {
 	User getUserByPhoneNum(String phoneNum);
 
 	List<User> findAllUser();
+	
+	boolean updateUser(User user);
+	
+	boolean updateUserAvatar(User user);
 
 }

@@ -9,8 +9,7 @@
 
 
 <!-- 使用FontAwesome 框架的字体图标，详情浏览： http://www.bootcss.com/p/font-awesome/#whats-new-->
-<link href="fonts/fontAwesome/font-awesome.css"
-	rel="stylesheet">
+<link href="fonts/fontAwesome/font-awesome.css" rel="stylesheet">
 <!-- Font Style -->
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'
 	rel='stylesheet' type='text/css'>
@@ -34,7 +33,7 @@
 <!-- 城市相关 -->
 
 <link href="css/bootstrap.css" rel="stylesheet">
-<script src="js/layer.js"></script>
+
 
 <link href="css/selectcity.css" rel="stylesheet">
 
@@ -111,12 +110,25 @@
 
 					<li class="search"><a href="#"><img alt=""
 							src="images/search_26.png"></a></li>
-					<li class="side-menu"><a href="#"><img alt=""
-							src="images/user_normal_35.png"></a></li>
+
+					<li class="dropdown pull-right"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#"><img alt=""
+							src="images/user_normal_35.png"></a>
+						<ul class="dropdown-menu cart-list">
+							<li><a href="#"><span class="fa fa-user"></span>
+									&nbsp个人信息</a></li>
+
+							<li><a href="#"><span class="fa fa-user-plus"></span>
+									&nbsp任务安排</a></li>
+
+							<li><a href="#"><span class="fa fa-power-off"></span>
+									&nbsp退出系统</a></li>
+						</ul></li>
 
 
-					<!-- 仿照购物车功能 -->
-					<%-- <li class="dropdown"><a href="#" class="dropdown-toggle"
+
+					<%-- <!-- 仿照购物车功能 -->
+					 <li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> <i class="fa fa-comment"></i> <span
 							class="badge">3</span>
 					</a>
@@ -147,8 +159,8 @@
 								</p></li>
 							<li class="total"><span class="pull-right"><strong>Total</strong>:
 									$0.00</span> <a href="#" class="btn btn-default btn-cart">Cart</a></li>
-						</ul></li> --%>
-
+						</ul></li> 
+ --%>
 
 				</ul>
 			</div>
@@ -328,27 +340,6 @@
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
-
-		<!-- Start Side Menu -->
-		<div class="side">
-			<a href="#" class="close-side"><i class="fa fa-times"></i></a>
-			<div class="widget">
-				<h5 class="title" align="center">欢迎您加入我们</h5>
-				<ul class="link">
-					<!-- 默认头像的样式，修改可以到bootstrap.min.css 文件中1418行修改 -->
-					<li><a href="#"><img alt="" src="images/test.jpg"
-							class="img-circle-normal" align="middle"></a></li>
-				</ul>
-				<button type="button" class="btn btn-primary btn-lg btn-block">登陆</button>
-
-				<button type="button" class="btn btn-primary btn-lg btn-block"
-					onclick="window.location.href='view/user_register.jsp'">注册</button>
-					
-			</div>
-
-
-		</div>
-		<!-- End Side Menu -->
 	</nav>
 	<!-- End Navigation -->
 
@@ -517,29 +508,4 @@
 
 
 </body>
-<%-- <body>
-
-
-
-
-
-
-	<center>
-		<s:form action="checkUserByPhoneAction" method="post">
-			<tr>
-				<td colspan="2" align="center"><s:property
-						value="exception.message" /></td>
-			</tr>
-			<s:textfield name="user.phoneNumber" key="phoneNumber"
-				tooltip="Enter your name" required="true"></s:textfield>
-			<s:textfield name="user.password" key="password"
-				tooltip="Enter your password" required="true"></s:textfield>
-			<s:submit value="save" />
-			<s:set />
-		</s:form>
-
-
-	</center>
-
-</body> --%>
 </html>

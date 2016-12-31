@@ -1,29 +1,89 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE >
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>23种</title>
+<title>爱租主页</title>
+
 
 <!-- 使用FontAwesome 框架的字体图标，详情浏览： http://www.bootcss.com/p/font-awesome/#whats-new-->
-<link href="../../fonts/navfonts/FontAwesome/font-awesome.css"
-	rel="stylesheet">
+<link href="../../fonts/fontAwesome/font-awesome.css" rel="stylesheet">
 <!-- Font Style -->
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'
 	rel='stylesheet' type='text/css'>
 <!-- Animate -->
 <link href="../../css/animate.css" rel="stylesheet">
 <!-- Bootstrap Core CSS -->
-<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/bootstrap.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="../../css/htmleaf-demo.css">
 <!-- Bootsnav -->
 <link href="../../css/bootsnav.css" rel="stylesheet">
 <link href="../../css/overwrite.css" rel="stylesheet">
 <link href="../../css/style.css" rel="stylesheet">
 <link href="../../skins/color.css" rel="stylesheet">
+
+<!-- Tab 相关 -->
+<link rel="stylesheet" type="text/css" href="../../css/tabnormalize.css" />
+<link href="../../css/tabstyle.css" rel="stylesheet">
+<script src="../../js/prefixfree.min.js"></script>
+
+
+<!-- 城市相关 -->
+
+<link href="../../css/bootstrap.css" rel="stylesheet">
+<script src="../../js/layer.js"></script>
+
+<link href="../../css/selectcity.css" rel="stylesheet">
+<script src="../../js/common/getLoginUser.js"></script>
+
+<script>
+//获取登陆用户的信息
+function getUser() {
+	var currUserPhone = getCookie("currLoginUser");
+	alert("cookieuserifno="+getCookie("currLoginUser"));
+	if(currUserPhone == ""){
+		alert("请重新登陆系统");
+		window.parent.location.href='login.jsp';
+		return;
+	}
+	$.ajax({
+		url : "getUserInformationLogin",
+		type : 'POST',
+		async : true,
+		data : {
+			"phoneNum" : currUserPhone
+		},
+		success : function(data) {
+			/* 成功后将用户名设置上去,如果该用户没有登陆，则跳转到登陆界面 */
+			if(data=="false"){
+				alert("请重新登陆系统");
+				window.parent.location.href='login.jsp';
+				
+			}else{
+				//获取用户信息后进行操作
+			}
+		},
+		error : function() {
+			alert("系统维护中....");
+			window.parent.location.href='login.jsp';
+		}
+	});
+}
+/* 清除用户登录信息，退出登录 */
+function logout(){
+	delCookie("currLoginUser");
+	window.parent.location.href='login.jsp';
+}
+
+</script>
+
+
+
+<script src="../../js/index.js"></script>
+<link href="../../css/showdata.css" rel="stylesheet">
+<link href="../../css/index.css" rel="stylesheet">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 	  <script src="js/html5shiv.min.js"></script>
@@ -33,7 +93,9 @@
 </head>
 
 
-<body id="home">
+<body id="home" onload="getUser()">
+
+
 	<!-- Start Home -->
 	<div class="pageheader">
 		<div class="container">
@@ -43,328 +105,433 @@
 	</div>
 	<!-- End Home -->
 	<!-- Start Navigation -->
-	<nav class="navbar navbar-default navbar-sticky bootsnav"> <!-- Start Top Search -->
-	<div class="top-search">
-		<div class="container">
-			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-search"></i></span>
-				<input type="text" class="form-control" placeholder="Search">
-				<span class="input-group-addon close-search"><i
-					class="fa fa-times"></i></span>
+	<nav class="navbar navbar-default navbar-sticky bootsnav">
+		<!-- Start Top Search -->
+		<div class="top-search">
+			<div class="container">
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-search"></i></span>
+					<input type="text" class="form-control" placeholder="Search"
+						id="search-data"> <span
+						class="input-group-addon close-search" id="search-close"><i
+						class="fa fa-times"></i></span>
+
+					<button class="btn" onclick='search()'>确定</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<!-- End Top Search -->
+		<!-- End Top Search -->
 
-	<div class="container">
-		<!-- Start Atribute Navigation -->
-		<div class="attr-nav">
-			<ul>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> <i class="fa fa-comment"></i> <span
-						class="badge">3</span>
-				</a>
-					<ul class="dropdown-menu cart-list">
-						<li><a href="#" class="photo"><img
-								src="../images/thumb/thumb01.jpg" class="cart-thumb" alt="" /></a>
-							<h6>
-								<a href="#">Delica omtantur </a>
-							</h6>
-							<p>
-								2x - <span class="price">$99.99</span>
-							</p></li>
-						<li><a href="#" class="photo"><img
-								src="../images/thumb/thumb02.jpg" class="cart-thumb" alt="" /></a>
-							<h6>
-								<a href="#">Omnes ocurreret</a>
-							</h6>
-							<p>
-								1x - <span class="price">$33.33</span>
-							</p></li>
-						<li><a href="#" class="photo"><img
-								src="../images/thumb/thumb03.jpg" class="cart-thumb" alt="" /></a>
-							<h6>
-								<a href="#">Agam facilisis</a>
-							</h6>
-							<p>
-								2x - <span class="price">$99.99</span>
-							</p></li>
-						<li class="total"><span class="pull-right"><strong>Total</strong>:
-								$0.00</span> <a href="#" class="btn btn-default btn-cart">Cart</a></li>
-					</ul></li>
-				<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-				<li class="side-menu"><a href="#"><i class="fa fa-user"></i></a></li>
-				<!-- <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li> -->
-			</ul>
-		</div>
-		<!-- End Atribute Navigation -->
+		<div class="container">
+			<!-- Start Atribute Navigation -->
+			<div class="attr-nav">
+				<ul>
 
-		<!-- Start Header Navigation -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#navbar-menu">
-				<i class="fa fa-bars"></i>
-			</button>
-			<img src="../../images/logo_64.png" class="logo" alt="">
-			<!-- <a class="navbar-brand" href="#brand"><img
-				src="images/logo_1296db.png" class="logo" alt=""></a> -->
-		</div>
-		<!-- End Header Navigation -->
+					<li class="search"><a href="#"><img alt=""
+							src="../../images/search_26.png"></a></li>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="navbar-menu">
-			<ul class="nav navbar-nav navbar-right" data-in="fadeInDown"
-				data-out="fadeOutUp">
-				<li><a href="#">首页</a></li>
-				<li><a href="#">租房</a></li>
-				<li class="dropdown megamenu-fw"><a href="#"
-					class="dropdown-toggle" data-toggle="dropdown">新房</a>
-					<ul class="dropdown-menu megamenu-content" role="menu">
-						<li>
-							<div class="row">
-								<div class="col-menu col-md-3">
-									<h6 class="title">Title Menu One</h6>
-									<div class="content">
-										<ul class="menu-col">
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-										</ul>
+					<li class="dropdown pull-right"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#"><img alt=""
+							src="../../images/user_normal_35.png"></a>
+						<ul class="dropdown-menu cart-list">
+							<li><a href="personal.jsp"><span class="fa fa-user"></span>
+									&nbsp个人信息</a></li>
+									
+									<li><a href="#"><span class="fa fa-envelope"></span>
+									&nbsp我的消息</a></li>
+
+							<li><a href="#"><span class="fa fa-calendar"></span>
+									&nbsp每日签到</a></li>
+
+							<li><a href="#"><span class="fa fa-home"></span>
+									&nbsp发布房源</a></li>
+
+							<li><a href="Javascript:logout();"><span class="fa fa-power-off"></span>
+									&nbsp退出登陆</a></li>
+						</ul></li>
+
+
+
+					<%-- <!-- 仿照购物车功能 -->
+					 <li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <i class="fa fa-comment"></i> <span
+							class="badge">3</span>
+					</a>
+						<ul class="dropdown-menu cart-list">
+							<li><a href="#" class="photo"><img
+									src="../images/thumb/thumb01.jpg" class="cart-thumb" alt="" /></a>
+								<h6>
+									<a href="#">Delica omtantur </a>
+								</h6>
+								<p>
+									2x - <span class="price">$99.99</span>
+								</p></li>
+							<li><a href="#" class="photo"><img
+									src="../images/thumb/thumb02.jpg" class="cart-thumb" alt="" /></a>
+								<h6>
+									<a href="#">Omnes ocurreret</a>
+								</h6>
+								<p>
+									1x - <span class="price">$33.33</span>
+								</p></li>
+							<li><a href="#" class="photo"><img
+									src="../images/thumb/thumb03.jpg" class="cart-thumb" alt="" /></a>
+								<h6>
+									<a href="#">Agam facilisis</a>
+								</h6>
+								<p>
+									2x - <span class="price">$99.99</span>
+								</p></li>
+							<li class="total"><span class="pull-right"><strong>Total</strong>:
+									$0.00</span> <a href="#" class="btn btn-default btn-cart">Cart</a></li>
+						</ul></li> 
+ --%>
+
+				</ul>
+			</div>
+			<!-- End Atribute Navigation -->
+
+			<!-- Start Header Navigation -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-menu">
+					<i class="fa fa-bars"></i>
+				</button>
+				<!-- 显示logo  属性可以到index.css中修改 -->
+				<div class="nav-logo">
+					<div class="nav-logo-img">
+						<!-- <img src="images/logo_64.png" alt=""> -->
+						<img alt=""
+							src="http://stacdn201.ganjistatic1.com/src/app/ms_v2/housing_v2/html/images/logo.png">
+					</div>
+					<!-- 城市操作     开始-->
+					<div class="selectcity">
+						<!-- 按钮触发模态框 -->
+						<div class="city-position">
+							<button class="city-button" data-toggle="modal"
+								data-target="#myModal" id="current-city">广州市</button>
+						</div>
+
+						<!-- 模态框（Modal） -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel" align="center">城市选择</h4>
+									</div>
+									<div class="modal-body">
+										<div class="docs-methods" id="div">
+											<form class="form-inline">
+												<div id="distpicker">
+													<div class="form-group">
+														<label class="sr-only" for="province">Province</label> <select
+															class="form-control" id="province"></select>
+													</div>
+													<div class="form-group">
+														<label class="sr-only" for="city">City</label> <select
+															class="form-control" id="city"></select>
+													</div>
+													<div class="form-group">
+														<label class="sr-only" for="district">District</label> <select
+															class="form-control" id="district"></select>
+													</div>
+													<div class="form-group">
+														<button class="btn btn-primary" id="reset" type="button">Reset</button>
+
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">关闭</button>
+										<button type="button" class="btn btn-primary"
+											data-dismiss="modal" onclick='setCity()'>提交更改</button>
 									</div>
 								</div>
-								<!-- end col-3 -->
-								<div class="col-menu col-md-3">
-									<h6 class="title">Title Menu Two</h6>
-									<div class="content">
-										<ul class="menu-col">
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-										</ul>
-									</div>
-								</div>
-								<!-- end col-3 -->
-								<div class="col-menu col-md-3">
-									<h6 class="title">Title Menu Three</h6>
-									<div class="content">
-										<ul class="menu-col">
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="col-menu col-md-3">
-									<h6 class="title">Title Menu Four</h6>
-									<div class="content">
-										<ul class="menu-col">
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-											<li><a href="#">Custom Menu</a></li>
-										</ul>
-									</div>
-								</div>
-								<!-- end col-3 -->
-							</div> <!-- end row -->
-						</li>
-					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">二手房</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Custom Menu</a></li>
-						<li><a href="#">Custom Menu</a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Sub Menu</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Custom Menu</a></li>
-								<li><a href="#">Custom Menu</a></li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown">Sub Menu</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Custom Menu</a></li>
-										<li><a href="#">Custom Menu</a></li>
-										<li><a href="#">Custom Menu</a></li>
-										<li><a href="#">Custom Menu</a></li>
-									</ul></li>
-								<li><a href="#">Custom Menu</a></li>
-							</ul></li>
-						<li><a href="#">Custom Menu</a></li>
-						<li><a href="#">Custom Menu</a></li>
-						<li><a href="#">Custom Menu</a></li>
-						<li><a href="#">Custom Menu</a></li>
-					</ul></li>
-				<li><a href="#">写字楼</a></li>
-				<li><a href="#">头条</a></li>
-				<li><a></a></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
+								<!-- /.modal-content -->
+							</div>
 
-	<!-- Start Side Menu -->
-	<div class="side">
-		<a href="#" class="close-side"><i class="fa fa-times"></i></a>
-		<div class="widget">
-			<h6 class="title" align="center">个人信息</h6>
-			<ul class="link" >
-				<li><a href="#"><img alt="" src="../../images/test.jpg" class="img-circle" align="center"></a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+			<!-- End Header Navigation -->
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbar-menu">
+				<ul class="nav navbar-nav navbar-right" data-in="fadeInDown"
+					data-out="fadeOutUp">
+					<li><a href="#">首页</a></li>
+					<li><a href="#">租房</a></li>
+					<li class="dropdown megamenu-fw"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown">新房</a>
+						<ul class="dropdown-menu megamenu-content" role="menu">
+							<li>
+								<div class="row">
+									<div class="col-menu col-md-3">
+										<h6 class="title">Title Menu One</h6>
+										<div class="content">
+											<ul class="menu-col">
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+											</ul>
+										</div>
+									</div>
+									<!-- end col-3 -->
+									<div class="col-menu col-md-3">
+										<h6 class="title">Title Menu Two</h6>
+										<div class="content">
+											<ul class="menu-col">
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+											</ul>
+										</div>
+									</div>
+									<!-- end col-3 -->
+									<div class="col-menu col-md-3">
+										<h6 class="title">Title Menu Three</h6>
+										<div class="content">
+											<ul class="menu-col">
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-menu col-md-3">
+										<h6 class="title">Title Menu Four</h6>
+										<div class="content">
+											<ul class="menu-col">
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+												<li><a href="#">Custom Menu</a></li>
+											</ul>
+										</div>
+									</div>
+									<!-- end col-3 -->
+								</div> <!-- end row -->
+							</li>
+						</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">二手房</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Custom Menu</a></li>
+							<li><a href="#">Custom Menu</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Sub Menu</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Custom Menu</a></li>
+									<li><a href="#">Custom Menu</a></li>
+									<li class="dropdown"><a href="#" class="dropdown-toggle"
+										data-toggle="dropdown">Sub Menu</a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Custom Menu</a></li>
+											<li><a href="#">Custom Menu</a></li>
+											<li><a href="#">Custom Menu</a></li>
+											<li><a href="#">Custom Menu</a></li>
+										</ul></li>
+									<li><a href="#">Custom Menu</a></li>
+								</ul></li>
+							<li><a href="#">Custom Menu</a></li>
+							<li><a href="#">Custom Menu</a></li>
+							<li><a href="#">Custom Menu</a></li>
+							<li><a href="#">Custom Menu</a></li>
+						</ul></li>
+					<li><a href="#">写字楼</a></li>
+					<li><a href="#">头条</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-		<div class="widget">
-			<h6 class="title">Additional Links</h6>
-			<ul class="link">
-				<li><a href="#">Retina Homepage</a></li>
-				<li><a href="#">New Page Examples</a></li>
-				<li><a href="#">Parallax Sections</a></li>
-				<li><a href="#">Shortcode Central</a></li>
-				<li><a href="#">Ultimate Font Collection</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- End Side Menu --> </nav>
+	</nav>
 	<!-- End Navigation -->
 
 	<div class="clearfix"></div>
 	<!-- Start Demo -->
-	<div id="demo" class="section">
-		<div class="container">
-			<!-- Start Heading -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="heading">
-						<h3 class="title">23种Bootstrap导航菜单布局设计jQuery插件</h3>
-						<p>Start your project with bootsnav, and build your best
-							navigation menu.</p>
+
+	<div class="content">
+		<!-- 筛选栏  -->
+		<!-- <div id="iframepageScreen" class="screen">
+			<iframe src="view/screen.jsp" id="iframepage" frameborder="0"
+				scrolling="no" width="100%" marginheight="0" marginwidth="0"></iframe>
+
+		</div> -->
+
+		<div class="content-info">
+			<!-- 租房信息显示，样式可以在index.css中修改-->
+			<div class="information">
+
+				<div class="information-cen">
+					<div id="iframepages">
+						<iframe src="../../view/tabMenuRental.jsp" id="iframepage"
+							frameborder="0" scrolling="no" width="100%" height="80px"
+							marginheight="0" marginwidth="0"></iframe>
+
+					</div>
+					<s:iterator value="#list">
+						<div class="data">
+
+							<div class="data-left">
+								<div class="data-left-img">
+									<img class="data-img"
+										src="http://img1.gtimg.com/comic/pics/hv1/61/234/2157/140318656.jpg"></img>
+								</div>
+							</div>
+							<div class="data-center">
+								<div class="data-tables">
+									<table class="data-table">
+										<tr>
+											<td colspan="6" class="data-table-td-title"><s:property
+													value="%{title}" /></td>
+										</tr>
+										<tr>
+											<td class="data-table-td-border"><s:property
+													value="%{rentalType}" /></td>
+											<td class="data-table-td-border"><s:property
+													value="%{layout}" /></td>
+											<td class="data-table-td-border"><s:property
+													value="%{size}" /></td>
+											<td class="data-table-td-border"><s:property
+													value="%{direction}" /></td>
+											<td class="data-table-td-border"><s:property
+													value="%{floor}" /></td>
+											<td><s:property value="%{decoration}" /></td>
+										</tr>
+										<tr>
+											<td class="data-table-td">位置：</td>
+											<td colspan="5" class="data-table-td"><s:property
+													value="%{address}" /></td>
+										</tr>
+										<tr>
+											<td class="data-table-td">经济人：</td>
+											<td><s:property value="%{agent}" /></td>
+											<td class="data-table-td"><s:property value="%{role}" /></td>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+							<!-- 价格、时间信息显示           开始-->
+							<div class="data-right">
+								<div class="data-price">
+									<div class="data-price-num">
+										<s:property value="%{price}" />
+									</div>
+									<div class="data-price-unit">
+										<s:property value="%{unit}" />
+									</div>
+
+								</div>
+
+								<div class="data-time">
+									<s:property value="%{time}" />
+								</div>
+
+							</div>
+						</div>
+
+					</s:iterator>
+					<!-- 分页 -->
+					<div class="pagination">
+
+						<div id="callBackPager"></div>
 					</div>
 
+					<!-- 价格、时间信息显示 结束  -->
 				</div>
-			</div>
-			<!-- End Heading -->
-			<!-- Start Menu -->
-			<div class="row">
-				<div class="col-md-12">
-					<h6>Custom Navigation Menu</h6>
-					<ol class="menu-demo">
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-right.html">Navbar
-								Menu Right</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-center.html">Navbar
-								Menu Center</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-left.html">Navbar
-								Menu Left</a></li>
-						<li class="col-md-4 col-sm-6"><a
-							href="nav-menu-dropdown.html">Navbar Dropdown</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-megamenu.html">Navbar
-								Megamenu</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-attr.html">Navbar
-								Atributes</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-shop.html">Navbar
-								Shopping Chart</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-search.html">Navbar
-								Search</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-menu-side.html">Navbar
-								Side Menu</a></li>
-					</ol>
+				<!--  房源推荐信息显示   开始-->
+				<div class="recommend">
+
+					<s:iterator value="#recommend">
+						<s:a href="http://www.baidu.com">
+							<div class="recommend-img">
+								<img class="recommend-data-img"
+									src="http://img2.ph.126.net/ezex84jfduVMJtBn1WlIug==/2049982255483942661.jpg"></img>
+							</div>
+							<div class="recommend-info">
+								<table>
+									<tr>
+										<td><s:property value="%{price}" /></td>
+										<td><s:property value="%{address}" /></td>
+									</tr>
+									<tr>
+										<td><s:property value="%{title}" /></td>
+
+									</tr>
+
+								</table>
+
+							</div>
+						</s:a>
+					</s:iterator>
 				</div>
+				<!--  房源推荐信息显示    结束-->
 			</div>
 
-			<!-- End Menu -->
-			<!-- Start Menu -->
-			<div class="row margintop30">
-				<div class="col-md-12">
-					<h6>Layout Navigation Menu</h6>
-					<ol class="menu-demo">
-						<li class="col-md-4 col-sm-6"><a href="nav-default.html">Navbar
-								Default</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-brand-center.html">Navbar
-								Center</a></li>
-						<li class="col-md-4 col-sm-6"><a
-							href="nav-brand-center-alt2.html">Navbar Center Alt2</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-mobile-slide.html">Navbar
-								Mobile Slide</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-full.html">Navbar
-								Full</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-sidebar.html">Navbar
-								Sidebar</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-brand-top.html">Navbar
-								Brand Top</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-sticky.html">Navbar
-								Sticky</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-scrollspy.html">Navbar
-								Scrollspy</a></li>
-						<li class="col-md-4 col-sm-6"><a
-							href="nav-scrollspy-sidebar.html">Navbar Scrollspy Sidebar</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-fixed-alt1.html">Navbar
-								Fixed alt1</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-fixed-alt2.html">Navbar
-								Fixed alt2</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-fixed-alt3.html">Navbar
-								Fixed alt3</a></li>
-						<li class="col-md-4 col-sm-6"><a href="nav-fixed-alt4.html">Navbar
-								Fixed alt4</a></li>
-					</ol>
-				</div>
-			</div>
-			<!-- End Menu -->
+
 		</div>
+
 	</div>
+
+
+
 	<!-- End Demo -->
 
-	<script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js"
+	<%-- <script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js"
 		type="text/javascript"></script>
 	<script>
 		window.jQuery
 				|| document
-						.write('<script src="../../js/jquery-1.11.0.min.js"><\/script>')
-	</script>
-	<script src="../../js/bootstrap.min.js"></script>
+						.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+	</script> --%>
+
+	<script src="../../js/jquery-3.1.1.js"></script>
+	<script src="../../js/bootstrap.js"></script>
 	<script src="../../js/bootsnav.js"></script>
+
+
+	<!--  城市数据js-->
+	<script src="../../js/selectcity/distpicker.data.js"></script>
+	<script src="../../js/selectcity/distpicker.js"></script>
+	<script src="../../js/selectcity/main.js"></script>
+
+	<!-- 分页 -->
+	<script src="../../js/extendPagination.js"></script>
+
+
+
+	<script type="text/javascript" src="../../js/jquery-tab.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// Calling the plugin
+			$('.tab-group').tabify();
+		})
+	</script>
 
 
 
 </body>
-<%-- <body>
-
-
-
-
-
-
-	<center>
-		<s:form action="checkUserByPhoneAction" method="post">
-			<tr>
-				<td colspan="2" align="center"><s:property
-						value="exception.message" /></td>
-			</tr>
-			<s:textfield name="user.phoneNumber" key="phoneNumber"
-				tooltip="Enter your name" required="true"></s:textfield>
-			<s:textfield name="user.password" key="password"
-				tooltip="Enter your password" required="true"></s:textfield>
-			<s:submit value="save" />
-			<s:set />
-		</s:form>
-
-
-	</center>
-
-</body> --%>
 </html>

@@ -196,6 +196,7 @@ public class UserRegisterAction extends ActionSupport {
 				u.setPhoneNum(phoneNum);
 				u.setPassword(reg.getPassword());
 				u.setCreditScore("40");
+				u.setRole("Œ¥»œ÷§");
 				u.setCreateTime(new Timestamp(System.currentTimeMillis()));
 				userService.save(u);
 

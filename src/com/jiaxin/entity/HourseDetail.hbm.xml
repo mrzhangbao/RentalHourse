@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.jiaxin.entity.HourseRental" table="tb_hourse_detail" catalog="db_rentalhourse">
+		<id name="hourse_detail_id" type="java.lang.Integer">
+			<column name="hourse_detail_id" length="50" />
+			<generator class="increment" />
+		</id>
+
+		<property name="user_id" type="java.lang.String">
+			<column name="user_id" length="50" />
+		</property>
+		
+		<property name="hourse_title" type="java.lang.String">
+			<column name="hourse_title" length="100" />
+		</property>
+		
+		<property name="hourse_size" type="java.lang.String">
+			<column name="hourse_size" length="50" />
+		</property>
+		
+		<property name="hourse_floor" type="java.lang.String">
+			<column name="hourse_floor" length="50" />
+		</property>
+	
+		<property name="hourse_price" type="java.lang.String">
+			<column name="hourse_price" length="50" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" length="250" />
+		</property>
+		<property name="img_data" type="java.lang.String">
+			<column name="img_data" length="100" />
+		</property>
+		<property name="send_time" type="java.lang.String">
+			<column name="send_time" length="50" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

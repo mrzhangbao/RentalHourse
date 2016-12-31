@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.jiaxin.entity.HourseRental" table="tb_hourse_rental" catalog="db_rentalhourse">
+		<id name="hourse_rental_id" type="java.lang.Integer">
+			<column name="hourse_rental_id" length="50" />
+			<generator class="increment" />
+		</id>
+
+		<property name="hourse_type_id" type="java.lang.Integer">
+			<column name="hourse_type_id" length="50" />
+		</property>
+		
+		<property name="resource" type="java.lang.Integer">
+			<column name="resource" length="50" />
+		</property>
+		
+		<property name="hourse_detail_id" type="java.lang.Integer">
+			<column name="hourse_detail_id" length="50" />
+		</property>
+		
+	
+		<property name="hourse_price" type="java.lang.String">
+			<column name="hourse_price" length="50" />
+		</property>
+		<property name="img_cover" type="java.lang.String">
+			<column name="img_cover" length="50" />
+		</property>
+		
+		<property name="province" type="java.lang.String">
+			<column name="province" length="50" />
+		</property>
+		
+		<property name="city" type="java.lang.String">
+			<column name="city" length="50" />
+		</property>
+		<property name="district" type="java.lang.String">
+			<column name="district" length="50" />
+		</property>
+		<property name="state" type="java.lang.String">
+			<column name="state" length="50" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 
-
+/*获取当前登录的管理员*/
 function getCur() {
 	$.ajax({
 		url : "getnameAdmin",
@@ -24,3 +24,4 @@ function getCur() {
 		}
 	});
 }
+

@@ -44,21 +44,7 @@ public class TestAction extends ActionSupport {
 
 		HourseDetail h = new HourseDetail();
 		List<HourseDetail> list = new ArrayList<>();
-		h.setId("1");
-		h.setUserId("2");
-		h.setTitle("超漂亮单间出租，全新配置，近街边，房东直租！");
-		h.setRentalType("整租");
-		h.setLayout("3室1厅1卫");
-		h.setSize("40m");
-		h.setFloor("5/15层");
-		h.setDirection("南北向");
-		h.setDecoration("精装修");
-		h.setAddress("深圳市南山区高新科技园北");
-		h.setAgent("张先生");
-		h.setRole("独立经济人");
-		h.setPrice("5600");
-		h.setUnit("元/月");
-		h.setTime("2016-12-19");
+		
 		for (int i = 0; i < 15; i++) {
 			list.add(h);
 		}
@@ -86,27 +72,13 @@ public class TestAction extends ActionSupport {
 
 		HourseDetail h = new HourseDetail();
 		List<HourseDetail> list = new ArrayList<>();
-		h.setId("1");
-		h.setUserId("2");
-		h.setTitle("超漂亮单间出租，全新配置，近街边，房东直租！");
-		h.setRentalType("整租");
-		h.setLayout("3室1厅1卫");
-		h.setSize("40m");
-		h.setFloor("5/15层");
-		h.setDirection("南北向");
-		h.setDecoration("精装修");
-		h.setAddress("深圳市南山区高新科技园北");
-		h.setAgent("张先生");
-		h.setRole("独立经济人");
 		
-		h.setUnit("元/月");
-		h.setTime("2016-12-19");
 		for (int i = 0; i < 15; i++) {
 			System.out.println("i="+i);
 			if(i<10 ){
-				h.setPrice("500"+i);
+				h.setHourse_price("500"+i);
 			}else {
-				h.setPrice("5600");
+				h.setHourse_price("5600");
 			}
 			list.add(h);
 		}
