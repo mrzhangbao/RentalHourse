@@ -48,6 +48,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
+	alert("name="+cname);
 	var name = cname + "=";
 	var ca = document.cookie.split(';');
 	for (var i = 0; i < ca.length; i++) {

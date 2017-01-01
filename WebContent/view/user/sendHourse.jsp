@@ -26,11 +26,11 @@
 
 <!--  封装了form to json 的方法 -->
 <script src="../../js/common/common.js"></script>
-<script src="../../js/common/hourse.js"></script>
+<script src="../../js/common/getLoginUser.js"></script>
 <script type="text/javascript">
 function getname() {
-	var currUserPhone = getCookieByName("currLoginUser");
-	alert("cookie="+getCookieByName("currLoginUser"));
+	var currUserPhone = getCookie("currLoginUser");
+	alert("cookie="+getCookie("currLoginUser"));
 }
 </script>
 <style type="text/css">
@@ -87,7 +87,6 @@ input.labelauty+label {
 
 </head>
 <body onload="getname()" style="background-color: #c0c0c0">
-
 
 
 
